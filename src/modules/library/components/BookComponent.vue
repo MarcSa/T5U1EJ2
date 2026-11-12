@@ -4,6 +4,7 @@ const props = defineProps<{
     cover_i?: number;
     author_name?: string[];
     first_publish_year?: number;
+    bookKey: string;
 }>();
 </script>
 
@@ -22,14 +23,27 @@ const props = defineProps<{
                     :alt="props.title"
                 />
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title mb-1">{{ props.title }}</h5>
-                <p class="fw-bold text-secondary mb-2">{{ props.author_name }}</p>
-                <p class="lead fs-6 mb-2">
-                    Realesed:
-                    {{ props.first_publish_year }}
-                    · Pages:
+                <p class="fw-bold text-secondary mb-2">
+                    Autor:
+                    <span v-for="(author, index) in props.author_name" :key="index">{{
+                        author
+                    }}</span>
                 </p>
+                <p class="lead fs-6 mb-auto pb-3">
+                    Año de primera publicación:
+                    {{ props.first_publish_year }}
+                </p>
+                <a
+                    :href="`https://openlibrary.org${props.bookKey}`"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary"
+                    role="button"
+                >
+                    Ver en OpenLibrary
+                </a>
             </div>
         </div>
     </li>

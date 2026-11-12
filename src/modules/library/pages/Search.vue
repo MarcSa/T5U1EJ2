@@ -23,13 +23,15 @@ const searchBooks = async (v: string) => {
 
 <template>
     <FormComponent @sendData="searchBooks" />
-    <ul>
+    <p class="text-black-50">Se han encontrado {{ books.length }} resultados.</p>
+    <ul class="row ps-0">
         <BookComponent
             v-for="book in books"
             :cover_i="book.cover_i"
             :title="book.title"
             :author_name="book.author_name"
             :first_publish_year="book.first_publish_year"
+            :bookKey="book.key"
             :key="book.key"
         />
     </ul>
