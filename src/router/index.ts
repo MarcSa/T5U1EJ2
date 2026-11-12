@@ -1,26 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Books from '@/modules/harry-potter/pages/Books.vue';
+import Search from '@/modules/library/pages/Search.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            component: () => import('@/modules/harry-potter/layouts/HarryPotterLayout.vue'),
+            component: () => import('@/modules/library/layouts/LibraryLayout.vue'),
             children: [
                 {
                     path: '/',
                     name: 'home',
-                    component: Books,
-                },
-                {
-                    path: '/personajes',
-                    name: 'chars',
-                    component: () => import('@/modules/harry-potter/pages/Chars.vue'),
+                    component: Search,
                 },
             ],
         },
-
         {
             path: '/:pathMatch(.*)*',
             name: 'NotFound',

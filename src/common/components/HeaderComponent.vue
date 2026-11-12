@@ -24,12 +24,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <RouterLink class="nav-link" to="/" exact-active-class="active"
-                            >Libros</RouterLink
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <RouterLink class="nav-link" to="/personajes" exact-active-class="active"
-                            >Personajes</RouterLink
+                            >Buscar</RouterLink
                         >
                     </li>
                 </ul>
